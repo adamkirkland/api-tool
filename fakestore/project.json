@@ -1,0 +1,66 @@
+{
+    "name": "Fake Store API",
+    "output_path": "output",
+    "variables": {
+        "next_id": "1"
+    },
+    "api_base": "https://fakestoreapi.com",
+    "requests": [
+        {
+            "desc": "List all products",
+            "method": "GET",
+            "endpoint": "/products",
+            "params": {
+                "sort": "desc"
+            }
+        },
+        {
+            "desc": "List all categories",
+            "method": "GET",
+            "endpoint": "/products/categories",
+            "params": {
+                "sort": "desc"
+            }
+        },
+        {
+            "desc": "Create a product",
+            "method": "POST",
+            "endpoint": "/products",
+            "body": {
+                "title": "test product {{next_id}}",
+                "price": "{{next_id}}",
+                "description": "lorem ipsum set",
+                "image": "https://i.pravatar.cc",
+                "category": "electronic"
+            },
+            "callback": "increment_id"
+        },
+        {
+            "desc": "List all users",
+            "method": "GET",
+            "endpoint": "/users",
+            "params": {
+                "sort": "desc"
+            }
+        },
+        {
+            "desc": "Add products to cart",
+            "method": "POST",
+            "endpoint": "/carts",
+            "body": {
+                "userId": 1,
+                "date": "2023-02-21",
+                "products": [
+                    {
+                        "productId": 5,
+                        "quantity": 1
+                    },
+                    {
+                        "productId": 1,
+                        "quantity": 5
+                    }
+                ]
+            }
+        }
+    ]
+}

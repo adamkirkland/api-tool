@@ -1,0 +1,4 @@
+python-socketio==4.6.1  # Different major versions of this library correspond to different (incompatible) versions of the Socket.IO protocol
+pytz
+requests
+windows-curses; sys_platform == 'win32'

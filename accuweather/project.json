@@ -1,0 +1,40 @@
+{
+    "name": "AccuWeather",
+    "output_path": "output",
+    "callback_menu": "menu_instructions",
+    "variables": {
+        "api_key": "HgMBFRkGDcpDzgQHGNnyhcjBD4U5Mxm4",
+        "city_search": "Melbourne",
+        "location_key": "26216"
+    },
+    "api_base": "http://dataservice.accuweather.com",
+    "requests": [
+        {
+            "desc": "Search for city: {{city_search}}",
+            "method": "GET",
+            "endpoint": "/locations/v1/cities/search",
+            "params": {
+                "q": "{{city_search}}",
+                "apikey": "{{api_key}}"
+            }
+        },
+        {
+            "desc": "1 day forecast",
+            "method": "GET",
+            "endpoint": "/forecasts/v1/daily/1day/{{location_key}}",
+            "params": {
+                "metric": "true",
+                "apikey": "{{api_key}}"
+            }
+        },
+        {
+            "desc": "Current conditions",
+            "method": "GET",
+            "endpoint": "/forecasts/v1/daily/1day/{{location_key}}",
+            "params": {
+                "metric": "true",
+                "apikey": "{{api_key}}"
+            }
+        }
+    ]
+}
